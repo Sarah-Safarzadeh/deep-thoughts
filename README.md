@@ -18,6 +18,7 @@
 * GraphQL
 > Apollo Server
 * Mongoose
+* Faker.js
 
 ## License
 * MIT
