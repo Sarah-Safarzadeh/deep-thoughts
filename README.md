@@ -11,9 +11,9 @@
 
 ## Technology
 * MERN STACK:
-> MongoDB
-> Express.js
-> React
+> MongoDB\
+> Express.js\
+> React\
 > Node
 * GraphQL
 > Apollo Server
