@@ -17,6 +17,7 @@
 > Node
 * GraphQL
 > Apollo Server
+* Mongoose
 
 ## License
 * MIT
