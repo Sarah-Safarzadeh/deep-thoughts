@@ -9,4 +9,4 @@ const typeDefs = gql`
 `;
 
 // export typeDefs
-module.export = TypeDefs;
+module.export = typeDefs;
