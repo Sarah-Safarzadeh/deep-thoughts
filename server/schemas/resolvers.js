@@ -32,7 +32,8 @@ const resolvers = {
     // Add a user
     addUser: async () => {
       const user = await User.create(args);
-      return user;
+      const token = signToken(user);
+      return { token, user };
     },
     // User login
     login: async (parent, { email, passowrd }) => {
@@ -47,7 +48,9 @@ const resolvers = {
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
       }
-      return user;
+
+      const token = signToken(user);
+      return { token, user };
     },
   },
 };
