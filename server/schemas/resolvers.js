@@ -4,6 +4,14 @@ const { AuthenticationError } = require("apollo-server-express");
 const resolvers = {
   // Query property
   Query: {
+    me: async (parent, args) => {
+      const userData = await User.findOne({})
+      .select('-__v -password')
+      .populate('thoughts')
+      .populate('friends');
+
+      return userData;
+    },
     // Get all users
     users: async () => {
       return User.find()
