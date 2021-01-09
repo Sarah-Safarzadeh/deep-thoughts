@@ -35,8 +35,19 @@ const resolvers = {
       return user;
     },
     // User login
-    login: async () => {
+    login: async (parent, { email, passowrd }) => {
+      const user = await User.findOne({ email });
 
+      if (!user) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+      return user;
     }
   }
 };
