@@ -1,6 +1,8 @@
 const { User, Thought } = require('../models');
+const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
+  // Query property
   Query: {
     // Get all users
     users: async () => {
@@ -22,6 +24,19 @@ const resolvers = {
     },
     thought: async (parent, { _id }) => {
       return Thought.findOne({ _id });
+    }
+  },
+
+  // Mutation property
+  Mutation: {
+    // Add a user
+    addUser: async () => {
+      const user = await User.create(args);
+      return user;
+    },
+    // User login
+    login: async () => {
+
     }
   }
 };
