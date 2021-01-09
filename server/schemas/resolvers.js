@@ -1,5 +1,5 @@
-const { User, Thought } = require('../models');
-const { AuthenticationError } = require('apollo-server-express');
+const { User, Thought } = require("../models");
+const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   // Query property
@@ -7,16 +7,16 @@ const resolvers = {
     // Get all users
     users: async () => {
       return User.find()
-        .select('-__v -password')
-        .populate('thoughts')
-        .populate('friends');
+        .select("-__v -password")
+        .populate("thoughts")
+        .populate("friends");
     },
     // get a user by username
     user: async (parent, { username }) => {
       return User.findOne({ username })
-        .select('-__v -password')
-        .populate('friends')
-        .populate('thoughts');
+        .select("-__v -password")
+        .populate("friends")
+        .populate("thoughts");
     },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -24,7 +24,7 @@ const resolvers = {
     },
     thought: async (parent, { _id }) => {
       return Thought.findOne({ _id });
-    }
+    },
   },
 
   // Mutation property
@@ -39,17 +39,17 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
       return user;
-    }
-  }
+    },
+  },
 };
 
 module.exports = resolvers;
