@@ -11,7 +11,8 @@ import Home from './pages/Home';
 
 // establish a new connection to the GraphQL server using Apollo
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql'
+  // Uniform Resource Identifier
+  uri: '/graphql'
 });
 
 function App() {
