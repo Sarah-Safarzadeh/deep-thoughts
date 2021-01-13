@@ -1,7 +1,14 @@
 import React from 'react';
 
 // import React Router
+// renamed BrowerRouter to "Router"
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Login from './pages/Login';
+import NoMatch from './pages/NoMatch';
+import SingleThought from './pages/SingleThought';
+import Profile from './pages/Profile';
+import Signup from './pages/Signup';
 
 // React provider components
 import { ApolloProvider } from '@apollo/react-hooks';
