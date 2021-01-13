@@ -1,5 +1,13 @@
 import React from 'react';
 
+// React Hook
+import { useParams } from 'react-router-dom';
+
+import ThoughtList from '../components/ThoughtList';
+
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_USER } from '../utils/queries';
+
 const Profile = () => {
   return (
     <div>
