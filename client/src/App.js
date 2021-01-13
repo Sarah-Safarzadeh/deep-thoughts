@@ -2,7 +2,7 @@ import React from 'react';
 
 // import React Router
 // renamed BrowerRouter to "Router"
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
