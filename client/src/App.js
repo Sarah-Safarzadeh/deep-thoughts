@@ -1,28 +1,28 @@
-import React from 'react';
+import React from "react";
 
 // import React Router
 // renamed BrowerRouter to "Router"
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Login from './pages/Login';
-import NoMatch from './pages/NoMatch';
-import SingleThought from './pages/SingleThought';
-import Profile from './pages/Profile';
-import Signup from './pages/Signup';
+import Login from "./pages/Login";
+import NoMatch from "./pages/NoMatch";
+import SingleThought from "./pages/SingleThought";
+import Profile from "./pages/Profile";
+import Signup from "./pages/Signup";
 
 // React provider components
-import { ApolloProvider } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from "@apollo/react-hooks";
+import ApolloClient from "apollo-boost";
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-import Home from './pages/Home';
+import Home from "./pages/Home";
 
 // establish a new connection to the GraphQL server using Apollo
 const client = new ApolloClient({
   // Uniform Resource Identifier
-  uri: '/graphql'
+  uri: "/graphql",
 });
 
 function App() {
@@ -32,11 +32,15 @@ function App() {
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
           <div className="container">
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/thought" component={SingleThought} />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/profile" component={Profile} />
+              <Route exact path="/thought" component={SingleThought} />
+
+              <Route component={NoMatch} />
+            </Switch>
           </div>
           <Footer />
         </div>
